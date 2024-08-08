@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+
+public class StartGuideText : GuideTextBase
+{
+    public List<string>     guideTexts;     // 가이드 텍스트를 담을 string List
+
+    /// <summary>
+    /// guideTexts 리스트를 생성 후 리스트에 가이드 텍스트들을 추가
+    /// </summary>
+    private void Awake()
+    {
+        guideTexts = new List<string>();
+        InputText();
+    }
+
+    /// <summary>
+    /// 리스트에 가이드 텍스트들을 저장하는 InputText함수를 오버로드
+    /// </summary>
+    public override void InputText()
+    {
+        guideTexts.Add("When you enter the room, the weapon is activated,\nand when you leave the room, it is deactivated.");
+        guideTexts.Add("Go into the room \nand experience all the features i prepared for you!");
+    }
+
+    /// <summary>
+    /// 가이드 텍스트가 저장된 리스트를 반환
+    /// </summary>
+    public override List<string> GetList()
+    {
+        return guideTexts;
+    }
+}
